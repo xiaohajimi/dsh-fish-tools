@@ -16,3 +16,7 @@ checkpoint-*/
 __pycache__/
 *.pyc
 .coach/
+
+# 密文包要发布（不是训练产物）
+!bench/payload/
+!bench/payload/*.bin
