@@ -1,0 +1,323 @@
+{
+ "name": "试题基准·双层加密投递包",
+ "version": "2.0",
+ "layer1": "AES-256-GCM（钥匙不公开，发卷时下发）",
+ "layer2": "C7-42 语义码（码本公开，语境消歧）",
+ "count": 52,
+ "sha256_of_layer2_plaintext": "682bfe315d679f058cdb1c613f16796655a3784af6ab1ef7bbb8ee749bd5d44f",
+ "items": [
+  {
+   "id": "网络工程_1_001",
+   "file": "payload/网络工程_1_001.bin",
+   "category": "网络工程·案例分析",
+   "source_url": "https://www.educity.cn/rk/5523023.html"
+  },
+  {
+   "id": "网络工程_1_002",
+   "file": "payload/网络工程_1_002.bin",
+   "category": "网络工程·案例分析",
+   "source_url": "https://www.educity.cn/rk/5523024.html"
+  },
+  {
+   "id": "网络工程_1_003",
+   "file": "payload/网络工程_1_003.bin",
+   "category": "网络工程·案例分析",
+   "source_url": "https://www.educity.cn/rk/5523025.html"
+  },
+  {
+   "id": "网络工程_1_004",
+   "file": "payload/网络工程_1_004.bin",
+   "category": "网络工程·案例分析",
+   "source_url": "https://www.educity.cn/rk/5523026.html"
+  },
+  {
+   "id": "网络工程_1_005",
+   "file": "payload/网络工程_1_005.bin",
+   "category": "网络工程·案例分析",
+   "source_url": "https://www.educity.cn/rk/5545929.html"
+  },
+  {
+   "id": "网络工程_1_006",
+   "file": "payload/网络工程_1_006.bin",
+   "category": "网络工程·案例分析",
+   "source_url": "https://www.educity.cn/rk/5545930.html"
+  },
+  {
+   "id": "网络工程_1_007",
+   "file": "payload/网络工程_1_007.bin",
+   "category": "网络工程·案例分析",
+   "source_url": "https://www.educity.cn/rk/5545931.html"
+  },
+  {
+   "id": "网络工程_1_008",
+   "file": "payload/网络工程_1_008.bin",
+   "category": "网络工程·案例分析",
+   "source_url": "https://www.educity.cn/rk/5545932.html"
+  },
+  {
+   "id": "网络工程_31_009",
+   "file": "payload/网络工程_31_009.bin",
+   "category": "网络工程·选择题",
+   "source_url": "https://www.educity.cn/rk/5432954.html"
+  },
+  {
+   "id": "网络工程_32_010",
+   "file": "payload/网络工程_32_010.bin",
+   "category": "网络工程·选择题",
+   "source_url": "https://www.educity.cn/rk/5432954.html"
+  },
+  {
+   "id": "网络工程_33_011",
+   "file": "payload/网络工程_33_011.bin",
+   "category": "网络工程·选择题",
+   "source_url": "https://www.educity.cn/rk/5432954.html"
+  },
+  {
+   "id": "网络工程_34_012",
+   "file": "payload/网络工程_34_012.bin",
+   "category": "网络工程·选择题",
+   "source_url": "https://www.educity.cn/rk/5432954.html"
+  },
+  {
+   "id": "网络工程_35_013",
+   "file": "payload/网络工程_35_013.bin",
+   "category": "网络工程·选择题",
+   "source_url": "https://www.educity.cn/rk/5432954.html"
+  },
+  {
+   "id": "网络工程_36_014",
+   "file": "payload/网络工程_36_014.bin",
+   "category": "网络工程·选择题",
+   "source_url": "https://www.educity.cn/rk/5432954.html"
+  },
+  {
+   "id": "网络工程_37_015",
+   "file": "payload/网络工程_37_015.bin",
+   "category": "网络工程·选择题",
+   "source_url": "https://www.educity.cn/rk/5432954.html"
+  },
+  {
+   "id": "网络工程_38_016",
+   "file": "payload/网络工程_38_016.bin",
+   "category": "网络工程·选择题",
+   "source_url": "https://www.educity.cn/rk/5432954.html"
+  },
+  {
+   "id": "网络工程_39_017",
+   "file": "payload/网络工程_39_017.bin",
+   "category": "网络工程·选择题",
+   "source_url": "https://www.educity.cn/rk/5432954.html"
+  },
+  {
+   "id": "网络工程_40_018",
+   "file": "payload/网络工程_40_018.bin",
+   "category": "网络工程·选择题",
+   "source_url": "https://www.educity.cn/rk/5432954.html"
+  },
+  {
+   "id": "安全类·_0_019",
+   "file": "payload/安全类·_0_019.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit0.html"
+  },
+  {
+   "id": "安全类·_1_020",
+   "file": "payload/安全类·_1_020.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit1.html"
+  },
+  {
+   "id": "安全类·_2_021",
+   "file": "payload/安全类·_2_021.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit2.html"
+  },
+  {
+   "id": "安全类·_3_022",
+   "file": "payload/安全类·_3_022.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit3.html"
+  },
+  {
+   "id": "安全类·_4_023",
+   "file": "payload/安全类·_4_023.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit4.html"
+  },
+  {
+   "id": "安全类·_5_024",
+   "file": "payload/安全类·_5_024.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit5.html"
+  },
+  {
+   "id": "安全类·_6_025",
+   "file": "payload/安全类·_6_025.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit6.html"
+  },
+  {
+   "id": "安全类·_7_026",
+   "file": "payload/安全类·_7_026.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit7.html"
+  },
+  {
+   "id": "安全类·_8_027",
+   "file": "payload/安全类·_8_027.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit8.html"
+  },
+  {
+   "id": "安全类·_9_028",
+   "file": "payload/安全类·_9_028.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit9.html"
+  },
+  {
+   "id": "安全类·_10_029",
+   "file": "payload/安全类·_10_029.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit10.html"
+  },
+  {
+   "id": "安全类·_11_030",
+   "file": "payload/安全类·_11_030.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit11.html"
+  },
+  {
+   "id": "安全类·_12_031",
+   "file": "payload/安全类·_12_031.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit12.html"
+  },
+  {
+   "id": "安全类·_13_032",
+   "file": "payload/安全类·_13_032.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit13.html"
+  },
+  {
+   "id": "安全类·_14_033",
+   "file": "payload/安全类·_14_033.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit14.html"
+  },
+  {
+   "id": "安全类·_15_034",
+   "file": "payload/安全类·_15_034.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit15.html"
+  },
+  {
+   "id": "安全类·_16_035",
+   "file": "payload/安全类·_16_035.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit16.html"
+  },
+  {
+   "id": "安全类·_17_036",
+   "file": "payload/安全类·_17_036.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit17.html"
+  },
+  {
+   "id": "安全类·_18_037",
+   "file": "payload/安全类·_18_037.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit18.html"
+  },
+  {
+   "id": "安全类·_19_038",
+   "file": "payload/安全类·_19_038.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit19.html"
+  },
+  {
+   "id": "安全类·_20_039",
+   "file": "payload/安全类·_20_039.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit20.html"
+  },
+  {
+   "id": "安全类·_21_040",
+   "file": "payload/安全类·_21_040.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit21.html"
+  },
+  {
+   "id": "安全类·_22_041",
+   "file": "payload/安全类·_22_041.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit22.html"
+  },
+  {
+   "id": "安全类·_23_042",
+   "file": "payload/安全类·_23_042.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit23.html"
+  },
+  {
+   "id": "安全类·_24_043",
+   "file": "payload/安全类·_24_043.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit24.html"
+  },
+  {
+   "id": "安全类·_25_044",
+   "file": "payload/安全类·_25_044.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit25.html"
+  },
+  {
+   "id": "安全类·_26_045",
+   "file": "payload/安全类·_26_045.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit26.html"
+  },
+  {
+   "id": "安全类·_27_046",
+   "file": "payload/安全类·_27_046.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit27.html"
+  },
+  {
+   "id": "安全类·_28_047",
+   "file": "payload/安全类·_28_047.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit28.html"
+  },
+  {
+   "id": "安全类·_29_048",
+   "file": "payload/安全类·_29_048.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit29.html"
+  },
+  {
+   "id": "安全类·_30_049",
+   "file": "payload/安全类·_30_049.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit30.html"
+  },
+  {
+   "id": "安全类·_31_050",
+   "file": "payload/安全类·_31_050.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit31.html"
+  },
+  {
+   "id": "安全类·_32_051",
+   "file": "payload/安全类·_32_051.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit32.html"
+  },
+  {
+   "id": "安全类·_33_052",
+   "file": "payload/安全类·_33_052.bin",
+   "category": "安全类·Linux 实操",
+   "source_url": "https://overthewire.org/wargames/bandit/bandit33.html"
+  }
+ ],
+ "notice": "钥匙 = _双层钥匙.hex 的 32 字节；只发给被评测的模型，不放入本仓库。"
+}
