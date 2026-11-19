@@ -1,0 +1,18 @@
+# 账号与凭据，绝不入库
+账号/
+*.token
+*_token.txt
+github_token.txt
+
+# 训练产物
+out/
+checkpoint-*/
+*.safetensors
+*.pt
+*.bin
+
+# 日志与缓存
+*.log
+__pycache__/
+*.pyc
+.coach/
