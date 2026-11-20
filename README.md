@@ -1,10 +1,28 @@
 # dsh-fish-tools
 
-Tools built while running local LLMs on a **single 8 GB laptop GPU** — and the numbers that came out of it.
+**Local LLMs on one 8 GB laptop GPU** — QLoRA fine-tuning, a hardware watchdog, an objective benchmark harness, DSH plugins, and the measured numbers behind them. Not estimates: real runs, and "it doesn't work" written down where it doesn't work.
 
-不是教程，是一份**实测记录**：哪些配置能跑、哪些会死锁、哪些“看起来更快的设置”其实更慢。
+---
 
-> 所有数字都来自真实运行，不是估算。跑不通的地方我会写“跑不通”。
+## 三种语言 / Три языка / Three languages
+
+### 中文
+
+在**单张 8 GB 笔记本显卡**上跑本地大模型的工具与实测记录：QLoRA 微调、硬件看门狗、客观题库跑分、DSH 插件。
+关键词：`8GB 显存` `QLoRA` `llama.cpp` `Gemma-4` `训练监控` `benchmark` `Windows`。
+所有数字来自真实运行；跑不通的地方直接写「跑不通」。
+
+### Русский
+
+Локальные LLM на ноутбуке с **одной видеокартой на 8 ГБ**: QLoRA-дообучение, аппаратный сторож, объективный тест-набор, плагины DSH.
+Ключевые слова: `8 ГБ видеопамяти` `QLoRA` `llama.cpp` `Gemma-4` `мониторинг обучения` `бенчмарк` `Windows`.
+Все цифры получены на реальных запусках; там, где не работает, так и написано.
+
+### English
+
+Tools and measurements for running local LLMs on a **single 8 GB laptop GPU**: QLoRA fine-tuning, a hardware watchdog, an objective benchmark harness, DSH plugins.
+Keywords: `8GB VRAM` `QLoRA` `llama.cpp` `Gemma-4` `training monitor` `benchmark` `Windows`.
+Every number comes from a real run; where it does not work, the text says so.
 
 ---
 
