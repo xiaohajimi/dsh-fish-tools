@@ -1,0 +1,26 @@
+{
+  "name": "dsh-labor",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Start and query configured local models, then dispatch scripting or writing work to them as tool calls.",
+  "license": "MIT",
+  "exports": {
+    ".": "./index.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "docs",
+    "icon.svg",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

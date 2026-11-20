@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "Local labor dispatch",
+    "description": "Start and query configured local models, then dispatch scripting or writing work to them as tool calls.",
+    "detail": "docs/DETAIL.md"
+  }
+}

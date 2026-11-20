@@ -14,6 +14,10 @@ Tools built while running local LLMs on a **single 8 GB laptop GPU** — and the
 |---|---|---|
 | `watchdog/` | 硬件看门狗：每分钟采 GPU/CPU/供电，越线写告警日志 | 可用 |
 | `notifier/` | 存盘提醒：训练每 N 步存盘时，把指定窗口拉到前台给你操作 | 可用 |
+| `trainer/` | QLoRA 训练脚本（Gemma-4 E4B，单卡 8 GB） | 可用 |
+| `bench/` | 客观题库跑分（题目密文 + 判分清单） | 可用 |
+| `dsh-update-guard/` | DSH 插件：锁版本、版本变了写告警、提醒别随手升级 | 可用 |
+| `dsh-labor/` | DSH 插件：把机械活派给本地模型（起服务/派活/落盘一次调用） | 可用 |
 | `docs/` | 实测记录（训练速度、显存频率、坑） | 持续更新 |
 
 ---

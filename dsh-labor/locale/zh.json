@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "本地派活",
+    "description": "启动并查询配置里的本地模型，用工具调用把机械活派出去。",
+    "detail": "docs/DETAIL.md"
+  }
+}

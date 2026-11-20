@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "DSH 版本守卫",
+    "description": "锁定当前 DSH 版本；版本一变就写告警，并提醒模型先拦升级。",
+    "detail": "docs/DETAIL.md"
+  }
+}

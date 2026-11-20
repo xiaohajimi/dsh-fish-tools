@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "DSH update guard",
+    "description": "Locks the running DSH version, writes an alert and injects a reminder when the version changes.",
+    "detail": "docs/DETAIL.md"
+  }
+}

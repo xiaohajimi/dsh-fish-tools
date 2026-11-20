@@ -1,0 +1,4 @@
+- insert:
+    - id: update-guard
+      name: 'dsh-update-guard'
+      config: {}

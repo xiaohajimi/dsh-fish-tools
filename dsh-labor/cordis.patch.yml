@@ -1,0 +1,4 @@
+- insert:
+    - id: labor
+      name: 'dsh-labor'
+      config: {}
