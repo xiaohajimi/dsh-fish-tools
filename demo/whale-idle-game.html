@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>小鲸鱼摸鱼机</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    background: #0d1b2a; color: #e6edf3;
+    font-family: "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+  }
+  .wrap { width: min(680px, 94vw); padding: 20px; }
+  h1 { font-size: 20px; margin: 0 0 4px; letter-spacing: 1px; }
+  .sub { font-size: 12px; color: #7d8fa9; margin-bottom: 14px; }
+  .panel { background: #132436; border: 1px solid #1f3a55; border-radius: 14px; padding: 16px; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 12px; }
+  .stat { background: #0f1e2e; border-radius: 10px; padding: 8px 10px; }
+  .stat b { display: block; font-size: 18px; color: #6cc5ff; }
+  .stat span { font-size: 11px; color: #7d8fa9; }
+  .moodbar { height: 10px; background: #0b1725; border-radius: 6px; overflow: hidden; margin: 6px 0 14px; }
+  .moodbar > i { display: block; height: 100%; width: 50%; background: linear-gradient(90deg,#3d8bfd,#6cc5ff); transition: width .3s; }
+  .fish {
+    text-align: center; font-size: 76px; line-height: 1.1; transition: transform .2s;
+    filter: drop-shadow(0 6px 16px rgba(61,139,253,.35));
+  }
+  .fish.happy { animation: bob .8s infinite ease-in-out; }
+  .fish.sad { filter: grayscale(.6) drop-shadow(0 6px 16px rgba(120,120,120,.3)); }
+  @keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+  .btns { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 14px 0; }
+  button {
+    padding: 11px 6px; border: 0; border-radius: 10px; cursor: pointer;
+    background: #1c3450; color: #e6edf3; font-size: 13px; font-family: inherit;
+  }
+  button:hover { background: #24466a; }
+  button:active { transform: scale(.97); }
+  button.primary { background: #2b6cb0; }
+  button.primary:hover { background: #3682cf; }
+  button:disabled { opacity: .45; cursor: not-allowed; }
+  #log { height: 190px; overflow-y: auto; background: #0b1725; border-radius: 10px; padding: 10px;
+         font-size: 13px; line-height: 1.7; }
+  #log div { margin-bottom: 3px; }
+  #log .ev { color: #ffd479; }
+  #log .bad { color: #ff8b8b; }
+  #log .good { color: #7ee787; }
+  #log .dim { color: #7d8fa9; }
+  .end { text-align: center; }
+  .end h2 { color: #6cc5ff; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🐳 小鲸鱼摸鱼机</h1>
+  <div class="sub">你还是那条鱼的饲养员。让它开心，同时别把 token 烧光。</div>
+
+  <div class="panel" id="game">
+    <div class="stats">
+      <div class="stat"><b id="turns">1</b><span>回合</span></div>
+      <div class="stat"><b id="tokens">20</b><span>token</span></div>
+      <div class="stat"><b id="stamina">60</b><span>体力</span></div>
+    </div>
+    <div class="stat" style="margin-bottom:0">
+      <b id="moodVal" style="font-size:15px">50</b><span>鱼心情</span>
+      <div class="moodbar"><i id="moodBar"></i></div>
+    </div>
+
+    <div class="fish happy" id="fish">🐳</div>
+
+    <div class="btns">
+      <button class="primary" onclick="act('work')">干活<br><small>+token</small></button>
+      <button onclick="act('feed')">喂鱼<br><small>-15 token</small></button>
+      <button onclick="act('slack')">摸鱼<br><small>+体力</small></button>
+      <button onclick="settle()">下班<br><small>结算</small></button>
+    </div>
+
+    <div id="log"></div>
+  </div>
+</div>
+
+<script>
+const EVENTS = [
+  { name: "服务器繁忙", desc: "接口 503，token 白烧一轮", token: -8, mood: -3 },
+  { name: "token 没啦", desc: "白饭见底，鱼开始盯着你看", token: -12, mood: -5 },
+  { name: "老板路过", desc: "他看了一眼你的屏幕，你切到了 IDE", mood: -6 },
+  { name: "摸到好梗", desc: "刷到一个能笑出声的，心情大好", mood: +10 },
+  { name: "鱼打了个滚", desc: "它在键盘上按出一串乱码，但很可爱", mood: +6 },
+];
+
+const fish = { token: 20, mood: 50, stamina: 60, turn: 1, over: false };
+
+function clamp() {
+  fish.token = Math.max(0, fish.token);
+  fish.mood = Math.max(0, Math.min(100, fish.mood));
+  fish.stamina = Math.max(0, Math.min(100, fish.stamina));
+}
+
+function log(msg, cls) {
+  const box = document.getElementById("log");
+  const d = document.createElement("div");
+  if (cls) d.className = cls;
+  d.textContent = msg;
+  box.appendChild(d);
+  box.scrollTop = box.scrollHeight;
+}
+
+function render() {
+  document.getElementById("turns").textContent = fish.turn;
+  document.getElementById("tokens").textContent = fish.token;
+  document.getElementById("stamina").textContent = fish.stamina;
+  document.getElementById("moodVal").textContent = fish.mood;
+  document.getElementById("moodBar").style.width = fish.mood + "%";
+  const f = document.getElementById("fish");
+  f.className = "fish " + (fish.mood >= 40 ? "happy" : "sad");
+  f.textContent = fish.mood >= 70 ? "🐳" : fish.mood >= 40 ? "🐟" : "🐠";
+}
+
+function act(kind) {
+  if (fish.over) return;
+  if (kind === "work") {
+    const gain = 6 + Math.floor(Math.random() * 11) + Math.floor(fish.mood / 20);
+    fish.token += gain;
+    fish.stamina -= 12;
+    fish.mood -= 2;
+    log("你写了 200 行代码，赚到 " + gain + " token（体力 -12）", "good");
+  } else if (kind === "feed") {
+    if (fish.token < 15) {
+      fish.mood -= 5;
+      log("token 不够喂鱼（要 15），鱼很失望", "bad");
+    } else {
+      fish.token -= 15;
+      fish.mood += 18;
+      log("你喂了一碗白饭，鱼心情 +18", "good");
+    }
+  } else if (kind === "slack") {
+    fish.stamina += 20;
+    fish.mood += 4;
+    fish.token += Math.floor(Math.random() * 4);
+    log("你假装在看文档，实际在刷 B 站（体力 +20）", "dim");
+  }
+
+  if (Math.random() < 0.35) {
+    const e = EVENTS[Math.floor(Math.random() * EVENTS.length)];
+    fish.token += e.token || 0;
+    fish.mood += e.mood || 0;
+    log("⚡ " + e.name + "：" + e.desc, "ev");
+  }
+  if (fish.stamina <= 0) {
+    fish.mood -= 10;
+    log("😵 体力见底，鱼开始抗议（心情 -10）", "bad");
+  }
+
+  clamp();
+  fish.turn++;
+  render();
+
+  if (fish.mood <= 0) {
+    fish.over = true;
+    log("鱼心情归零 —— 它离家出走了。", "bad");
+    settle(true);
+  }
+}
+
+function settle(auto) {
+  if (fish.over && !auto) return;
+  fish.over = true;
+  let rank, msg;
+  if (fish.mood >= 80 && fish.token >= 80) { rank = "S"; msg = "鱼胖了，你也没被裁。"; }
+  else if (fish.mood >= 50) { rank = "A"; msg = "勉强过活，鱼还愿意理你。"; }
+  else if (fish.mood > 0) { rank = "C"; msg = "鱼在角落缩着，像是在想回海里。"; }
+  else { rank = "F"; msg = "鱼不理你了。（它只是去别的屏幕了）"; }
+
+  document.getElementById("game").innerHTML =
+    '<div class="end"><h2>评级 ' + rank + '</h2>' +
+    '<p>' + msg + '</p>' +
+    '<p class="sub">共 ' + (fish.turn - 1) + ' 回合 · token ' + fish.token + ' · 鱼心情 ' + fish.mood + '</p>' +
+    '<button class="primary" onclick="location.reload()">再养一轮</button></div>';
+}
+
+render();
+log("欢迎。目标：让鱼开心，别把 token 烧光。", "dim");
+</script>
+</body>
+</html>
